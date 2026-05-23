@@ -1,0 +1,12 @@
+{
+  "name": "ai-services-agency",
+  "version": "1.0.0",
+  "description": "AI Services Agency Website - Chatbots, Automation, Websites",
+  "main": "index.html",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "keywords": ["ai", "services", "agency", "chatbots", "automation"],
+  "author": "Your Name",
+  "license": "MIT"
+}
