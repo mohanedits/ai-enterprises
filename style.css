@@ -206,3 +206,11 @@ footer {
         font-size: 2rem;
     }
 }
+/* Blog Generator Button */
+.demo a {
+    transition: transform 0.2s;
+}
+
+.demo a:hover {
+    transform: scale(1.02);
+}
