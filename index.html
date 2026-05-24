@@ -8,339 +8,54 @@
 </head>
 <body>
 
-   <nav>
-    <div class="logo">🤖 AI Services Agency</div>
-    <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#demo">Demo</a>
-        <a href="#contact">Contact</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/blog-generator.html">📝 Blog Generator</a>
-    </div>
-</nav>
-
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1>AI Solutions for <span>Your Business</span></h1>
-        <p>Chatbots • Automation • Websites • Content • Voice • And more</p>
-        <a href="#contact" class="btn-primary">Get Free Consultation →</a>
-    </header>
-
-    <!-- Services Section - YOUR 10 SERVICES -->
-    <section id="services" class="services">
-        <h2>🚀 AI Services We Provide</h2>
-        <div class="services-grid">
-            
-            <div class="service-card">
-                <div class="icon">💬</div>
-                <h3>AI Chatbot Development</h3>
-                <p>Custom chatbots for businesses, schools, websites & customer support</p>
-                <small>OpenAI • Google Cloud</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">🌐</div>
-                <h3>AI Website Creation</h3>
-                <p>Portfolios, business sites, AI landing pages, SaaS dashboards</p>
-                <small>Vercel • GitHub Pages</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">⚡</div>
-                <h3>AI Automation Services</h3>
-                <p>Emails, WhatsApp replies, customer support, data entry, scheduling</p>
-                <small>Zapier • Make.com</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">📄</div>
-                <h3>Resume & Portfolio Generation</h3>
-                <p>ATS resumes, AI portfolio websites, LinkedIn optimization</p>
-                <small>AI-powered</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">🎨</div>
-                <h3>AI Image & Design</h3>
-                <p>Posters, thumbnails, logos, social media graphics, AI avatars</p>
-                <small>Canva • Adobe AI</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">📱</div>
-                <h3>Social Media AI Content</h3>
-                <p>Instagram captions, YouTube scripts, video ideas, marketing posts</p>
-                <small>Content automation</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">💻</div>
-                <h3>AI Coding Solutions</h3>
-                <p>Websites, bots, dashboards, management systems</p>
-                <small>Custom development</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">🎙️</div>
-                <h3>AI Voice Services</h3>
-                <p>AI voiceovers, text-to-speech, dubbing, AI call assistants</p>
-                <small>Voice AI</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">📚</div>
-                <h3>AI Tools for Students</h3>
-                <p>Homework assistant, notes summarizer, quiz generator, coding helper</p>
-                <small>Educational AI</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">🏢</div>
-                <h3>AI Agency Model</h3>
-                <p>Monthly AI solutions for clients: websites + automation + chatbots</p>
-                <small>Subscription-based</small>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <h2>💰 Simple Pricing Models</h2>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Project Based</h3>
-                <div class="price">$500 - $5000</div>
-                <p>One-time payment for complete delivery</p>
-                <ul>
-                    <li>✓ Custom AI solution</li>
-                    <li>✓ 30 days support</li>
-                    <li>✓ Source code included</li>
-                </ul>
-            </div>
-            <div class="price-card featured">
-                <h3>Monthly Subscription</h3>
-                <div class="price">$299 - $999<span>/month</span></div>
-                <p>Ongoing AI services & support</p>
-                <ul>
-                    <li>✓ Everything in Project</li>
-                    <li>✓ Unlimited revisions</li>
-                    <li>✓ 24/7 support</li>
-                    <li>✓ Monthly new features</li>
-                </ul>
-            </div>
-            <div class="price-card">
-                <h3>Freelance / Hourly</h3>
-                <div class="price">$50 - $150<span>/hour</span></div>
-                <p>Pay as you go for specific tasks</p>
-                <ul>
-                    <li>✓ Flexible scope</li>
-                    <li>✓ Quick turnaround</li>
-                    <li>✓ No commitment</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Demo Section - Prove your AI skills -->
-    <section id="demo" class="demo">
-        <h2>🎯 Live AI Demo</h2>
-        <p>Try our AI content generator — free, no signup required</p>
-        
-        <select id="demoType">
-            <option value="captions">Instagram Captions</option>
-            <option value="script">YouTube Script</option>
-            <option value="ideas">Video Ideas</option>
-        </select>
-        
-        <input type="text" id="demoInput" placeholder="Describe your topic... (e.g., fitness tips for beginners)">
-        <button id="runDemo">Generate with AI →</button>
-<a href="blog-generator.html" style="background: #28a745; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-block;">
-    📝 Try Our Blog Title Generator →
-</a>
-        <div id="demoOutput" class="demo-output"></div>
-        <div id="demoLoading" style="display:none;">🤖 AI is thinking...</div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>📞 Get a Free Consultation</h2>
-        <p>Tell us what you need — we'll respond within 24 hours</p>
-        
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your name" required>
-            <input type="email" id="email" placeholder="Your email" required>
-            <select id="service">
-                <option value="">Select a service</option>
-                <option>AI Chatbot</option>
-                <option>AI Website</option>
-                <option>AI Automation</option>
-                <option>Resume/Portfolio</option>
-                <option>AI Design</option>
-                <option>Social Media AI</option>
-                <option>AI Coding</option>
-                <option>AI Voice</option>
-                <option>Student Tools</option>
-                <option>Agency Model</option>
-            </select>
-            <textarea id="message" placeholder="Tell us about your project..." rows="4"></textarea>
-            <button type="submit">Send Message →</button>
-        </form>
-        <div id="formStatus"></div>
-    </section>
-
-    <footer>
-        <p>🤖 AI Services Agency — Delivering AI solutions for businesses worldwide</p>
-        <p>Contact: ai@yoursite.com | WhatsApp: +1 234 567 890</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Services Agency | Chatbots | Automation | Websites</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
     <!-- Header / Navigation -->
     <nav>
         <div class="logo">🤖 AI Services Agency</div>
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#pricing">Pricing</a>
-            <a href="#demo">Live Demo</a>
+            <a href="#demo">Demo</a>
             <a href="#contact">Contact</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="blog-generator.html">📝 Blog Generator</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (ONCE) -->
     <header class="hero">
         <h1>AI Solutions for <span>Your Business</span></h1>
         <p>Chatbots • Automation • Websites • Content • Voice • And more</p>
         <a href="#contact" class="btn-primary">Get Free Consultation →</a>
     </header>
 
-    <!-- Services Section - YOUR 10 SERVICES -->
+    <!-- Services Section (ONCE) -->
     <section id="services" class="services">
         <h2>🚀 AI Services We Provide</h2>
         <div class="services-grid">
-            
-            <div class="service-card">
-                <div class="icon">💬</div>
-                <h3>AI Chatbot Development</h3>
-                <p>Custom chatbots for businesses, schools, websites & customer support</p>
-                <small>OpenAI • Google Cloud</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">🌐</div>
-                <h3>AI Website Creation</h3>
-                <p>Portfolios, business sites, AI landing pages, SaaS dashboards</p>
-                <small>Vercel • GitHub Pages</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">⚡</div>
-                <h3>AI Automation Services</h3>
-                <p>Emails, WhatsApp replies, customer support, data entry, scheduling</p>
-                <small>Zapier • Make.com</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">📄</div>
-                <h3>Resume & Portfolio Generation</h3>
-                <p>ATS resumes, AI portfolio websites, LinkedIn optimization</p>
-                <small>AI-powered</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">🎨</div>
-                <h3>AI Image & Design</h3>
-                <p>Posters, thumbnails, logos, social media graphics, AI avatars</p>
-                <small>Canva • Adobe AI</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">📱</div>
-                <h3>Social Media AI Content</h3>
-                <p>Instagram captions, YouTube scripts, video ideas, marketing posts</p>
-                <small>Content automation</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">💻</div>
-                <h3>AI Coding Solutions</h3>
-                <p>Websites, bots, dashboards, management systems</p>
-                <small>Custom development</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">🎙️</div>
-                <h3>AI Voice Services</h3>
-                <p>AI voiceovers, text-to-speech, dubbing, AI call assistants</p>
-                <small>Voice AI</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">📚</div>
-                <h3>AI Tools for Students</h3>
-                <p>Homework assistant, notes summarizer, quiz generator, coding helper</p>
-                <small>Educational AI</small>
-            </div>
-
-            <div class="service-card">
-                <div class="icon">🏢</div>
-                <h3>AI Agency Model</h3>
-                <p>Monthly AI solutions for clients: websites + automation + chatbots</p>
-                <small>Subscription-based</small>
-            </div>
+            <div class="service-card"><div class="icon">💬</div><h3>AI Chatbot Development</h3><p>Custom chatbots for businesses, schools, websites & customer support</p><small>OpenAI • Google Cloud</small></div>
+            <div class="service-card"><div class="icon">🌐</div><h3>AI Website Creation</h3><p>Portfolios, business sites, AI landing pages, SaaS dashboards</p><small>Vercel • GitHub Pages</small></div>
+            <div class="service-card"><div class="icon">⚡</div><h3>AI Automation Services</h3><p>Emails, WhatsApp replies, customer support, data entry, scheduling</p><small>Zapier • Make.com</small></div>
+            <div class="service-card"><div class="icon">📄</div><h3>Resume & Portfolio Generation</h3><p>ATS resumes, AI portfolio websites, LinkedIn optimization</p><small>AI-powered</small></div>
+            <div class="service-card"><div class="icon">🎨</div><h3>AI Image & Design</h3><p>Posters, thumbnails, logos, social media graphics, AI avatars</p><small>Canva • Adobe AI</small></div>
+            <div class="service-card"><div class="icon">📱</div><h3>Social Media AI Content</h3><p>Instagram captions, YouTube scripts, video ideas, marketing posts</p><small>Content automation</small></div>
+            <div class="service-card"><div class="icon">💻</div><h3>AI Coding Solutions</h3><p>Websites, bots, dashboards, management systems</p><small>Custom development</small></div>
+            <div class="service-card"><div class="icon">🎙️</div><h3>AI Voice Services</h3><p>AI voiceovers, text-to-speech, dubbing, AI call assistants</p><small>Voice AI</small></div>
+            <div class="service-card"><div class="icon">📚</div><h3>AI Tools for Students</h3><p>Homework assistant, notes summarizer, quiz generator, coding helper</p><small>Educational AI</small></div>
+            <div class="service-card"><div class="icon">🏢</div><h3>AI Agency Model</h3><p>Monthly AI solutions for clients: websites + automation + chatbots</p><small>Subscription-based</small></div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Pricing Section (ONCE) -->
     <section id="pricing" class="pricing">
         <h2>💰 Simple Pricing Models</h2>
         <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Project Based</h3>
-                <div class="price">$500 - $5000</div>
-                <p>One-time payment for complete delivery</p>
-                <ul>
-                    <li>✓ Custom AI solution</li>
-                    <li>✓ 30 days support</li>
-                    <li>✓ Source code included</li>
-                </ul>
-            </div>
-            <div class="price-card featured">
-                <h3>Monthly Subscription</h3>
-                <div class="price">$299 - $999<span>/month</span></div>
-                <p>Ongoing AI services & support</p>
-                <ul>
-                    <li>✓ Everything in Project</li>
-                    <li>✓ Unlimited revisions</li>
-                    <li>✓ 24/7 support</li>
-                    <li>✓ Monthly new features</li>
-                </ul>
-            </div>
-            <div class="price-card">
-                <h3>Freelance / Hourly</h3>
-                <div class="price">$50 - $150<span>/hour</span></div>
-                <p>Pay as you go for specific tasks</p>
-                <ul>
-                    <li>✓ Flexible scope</li>
-                    <li>✓ Quick turnaround</li>
-                    <li>✓ No commitment</li>
-                </ul>
-            </div>
+            <div class="price-card"><h3>Project Based</h3><div class="price">$500 - $5000</div><p>One-time payment for complete delivery</p><ul><li>✓ Custom AI solution</li><li>✓ 30 days support</li><li>✓ Source code included</li></ul></div>
+            <div class="price-card featured"><h3>Monthly Subscription</h3><div class="price">$299 - $999<span>/month</span></div><p>Ongoing AI services & support</p><ul><li>✓ Everything in Project</li><li>✓ Unlimited revisions</li><li>✓ 24/7 support</li><li>✓ Monthly new features</li></ul></div>
+            <div class="price-card"><h3>Freelance / Hourly</h3><div class="price">$50 - $150<span>/hour</span></div><p>Pay as you go for specific tasks</p><ul><li>✓ Flexible scope</li><li>✓ Quick turnaround</li><li>✓ No commitment</li></ul></div>
         </div>
     </section>
 
-    <!-- Live Demo Section - Prove your AI skills -->
+    <!-- Demo Section (ONCE) -->
     <section id="demo" class="demo">
         <h2>🎯 Live AI Demo</h2>
         <p>Try our AI content generator — free, no signup required</p>
@@ -355,10 +70,16 @@
         <button id="runDemo">Generate with AI →</button>
         
         <div id="demoOutput" class="demo-output"></div>
-        <div id="demoLoading" style="display:none;">🤖 AI is thinking...</div>
+        
+        <!-- Blog Generator Button -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="blog-generator.html" style="background: #28a745; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-block;">
+                📝 Try Our Blog Title Generator →
+            </a>
+        </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section (ONCE) -->
     <section id="contact" class="contact">
         <h2>📞 Get a Free Consultation</h2>
         <p>Tell us what you need — we'll respond within 24 hours</p>
@@ -385,9 +106,10 @@
         <div id="formStatus"></div>
     </section>
 
+    <!-- Footer (ONCE) -->
     <footer>
         <p>🤖 AI Services Agency — Delivering AI solutions for businesses worldwide</p>
-        <p>Contact: ai@yoursite.com | WhatsApp: +1 234 567 890</p>
+        <p>Contact: <span id="footerEmail">ai@yoursite.com</span> | WhatsApp: <span id="footerPhone">+1 234 567 890</span></p>
     </footer>
 
     <script src="script.js"></script>
