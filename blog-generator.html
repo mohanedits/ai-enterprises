@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Title Generator | AI Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 500px) {
+            .input-group {
+                flex-direction: row;
+            }
+        }
+
+        input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #667eea;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .results {
+            margin-top: 30px;
+        }
+
+        .title-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border-left: 4px solid #667eea;
+        }
+
+        .title-card:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .title-text {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .copy-hint {
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .placeholder {
+            text-align: center;
+            color: #999;
+            border: 2px dashed #ddd;
+            border-radius: 15px;
+            padding: 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            text-align: center;
+            width: 100%;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📝 Blog Title Generator</h1>
+    <p class="subtitle">Enter your topic and get 5 catchy blog titles instantly</p>
+
+    <div class="input-group">
+        <input type="text" id="topicInput" placeholder="Enter blog topic... (e.g., Digital Marketing, Fitness, AI)">
+        <button id="generateBtn">✨ Generate Titles</button>
+    </div>
+
+    <div id="results" class="results">
+        <div class="placeholder">
+            💡 Your generated blog titles will appear here
+        </div>
+    </div>
+
+    <a href="/" class="back-link">← Back to Home</a>
+</div>
+
+<div id="toast" class="toast">📋 Copied to clipboard!</div>
+
+<script>
+    // Blog title templates
+    const titleTemplates = [
+        '10 Proven Ways to Grow Your {topic} Fast',
+        'The Ultimate Guide to {topic}',
+        'How to Master {topic} in 2025',
+        'Top {topic} Mistakes You Should Avoid',
+        'Best {topic} Strategies for Beginners',
+        'Why {topic} Is More Important Than Ever',
+        '7 Secrets to Successful {topic}',
+        'Beginner\'s Guide to {topic}',
+        'How AI Is Changing {topic}',
+        'The Future of {topic}: Trends to Watch',
+        '{topic} 101: Everything You Need to Know',
+        '5 {topic} Hacks That Actually Work',
+        'The Psychology Behind {topic}',
+        'How to Monetize Your {topic} Skills',
+        '{topic} Success Stories That Will Inspire You'
+    ];
+
+    function generateTitles() {
+        let topic = document.getElementById('topicInput').value.trim();
+        const resultsDiv = document.getElementById('results');
+        
+        // Default topic if empty
+        if (topic === '') {
+            topic = 'Blogging';
+        }
+        
+        // Capitalize first letter of each word
+        topic = topic.split(' ').map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        ).join(' ');
+        
+        // Shuffle and pick 5 random titles
+        const shuffled = [...titleTemplates];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        
+        const selected = shuffled.slice(0, 5);
+        
+        // Replace {topic} with actual topic
+        const generatedTitles = selected.map(template => 
+            template.replaceAll('{topic}', topic)
+        );
+        
+        // Display results
+        resultsDiv.innerHTML = '';
+        generatedTitles.forEach((title, index) => {
+            const titleCard = document.createElement('div');
+            titleCard.className = 'title-card';
+            titleCard.innerHTML = `
+                <div class="title-text">${index + 1}. ${title}</div>
+                <div class="copy-hint">Click to copy</div>
+            `;
+            titleCard.onclick = () => copyToClipboard(title);
+            resultsDiv.appendChild(titleCard);
+        });
+    }
+    
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        });
+    }
+    
+    // Generate on button click
+    document.getElementById('generateBtn').addEventListener('click', generateTitles);
+    
+    // Generate on Enter key
+    document.getElementById('topicInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            generateTitles();
+        }
+    });
+</script>
+
+</body>
+</html>
