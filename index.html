@@ -8,16 +8,18 @@
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <nav>
-        <div class="logo">🤖 AI Services Agency</div>
-        <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#demo">Live Demo</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+   <nav>
+    <div class="logo">🤖 AI Services Agency</div>
+    <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#demo">Demo</a>
+        <a href="#contact">Contact</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/blog-generator">📝 Blog Generator</a>
+    </div>
+</nav>
+
 
     <!-- Hero Section -->
     <header class="hero">
@@ -154,7 +156,12 @@
         
         <input type="text" id="demoInput" placeholder="Describe your topic... (e.g., fitness tips for beginners)">
         <button id="runDemo">Generate with AI →</button>
-        
+
+      <div style="margin-top: 20px; text-align: center;">
+        <a href="/blog-generator" style="background: #28a745; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-block;">
+            📝 Try Our Blog Title Generator →
+        </a>
+    </div>
         <div id="demoOutput" class="demo-output"></div>
         <div id="demoLoading" style="display:none;">🤖 AI is thinking...</div>
     </section>
