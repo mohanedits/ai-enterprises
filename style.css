@@ -214,3 +214,42 @@ footer {
 .demo a:hover {
     transform: scale(1.02);
 }
+/* Animated WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+    background: #25D366;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    animation: pulse 1.5s infinite;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    animation: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 5px 30px rgba(37, 211, 102, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+    }
+}
