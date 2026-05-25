@@ -143,37 +143,62 @@
         }
 
         /* Feature 7: FAQ */
-        .faq {
-            padding: 60px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .faq-item {
-            background: #f8f9fa;
-            margin: 15px 0;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .faq-question {
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: bold;
-            background: #e9ecef;
-        }
-        body.dark-mode .faq-question {
-            background: #0f0f23;
-        }
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s;
-        }
-        .faq-item.active .faq-answer {
-            padding: 15px 20px;
-            max-height: 200px;
-        }
+        /* Feature 7: FAQ - Improved Colors */
+.faq {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.faq h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #667eea;
+}
+.faq-item {
+    background: linear-gradient(135deg, #1a1a3a, #16213e);
+    margin: 20px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #2d2d5e;
+    transition: transform 0.3s;
+}
+.faq-item:hover {
+    transform: translateX(5px);
+}
+.faq-question {
+    padding: 18px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+.faq-question:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    color: #ccc;
+    line-height: 1.6;
+}
+.faq-item.active .faq-answer {
+    padding: 20px 25px;
+    max-height: 200px;
+    background: rgba(102, 126, 234, 0.1);
+}
 
+/* Dark mode adjustments for FAQ */
+body.dark-mode .faq-item {
+    background: linear-gradient(135deg, #0f0f23, #0a0a1a);
+    border-color: #333;
+}
+body.dark-mode .faq-answer {
+    color: #aaa;
+}
         /* Feature 8: Newsletter */
         .newsletter {
             text-align: center;
