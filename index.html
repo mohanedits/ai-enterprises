@@ -6,34 +6,246 @@
     <title>AI Services Agency | Chatbots | Automation | Websites</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Feature 2: Dark Mode Styles */
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f23;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(15, 15, 35, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ffd700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #333;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+
+        .services, .pricing, .demo, .contact {
+            padding: 60px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #667eea;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #1a1a3a;
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .service-card p {
+            color: #ccc;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .service-card small {
+            color: #667eea;
+            font-size: 0.8rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background: #1a1a3a;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .price-card.featured {
+            border: 2px solid #ffd700;
+            transform: scale(1.02);
+        }
+
+        .price-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .price-card .price {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .price-card .price span {
+            font-size: 1rem;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .price-card li {
+            padding: 8px 0;
+            color: #ccc;
+        }
+
+        .demo input, .demo select, .contact input, .contact select, .contact textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            border-radius: 10px;
+            background: #1a1a3a;
+            color: #fff;
+        }
+
+        .demo button, .contact button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .demo-output {
+            margin-top: 20px;
+            padding: 20px;
+            background: #1a1a3a;
+            border-radius: 10px;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #0a0a1a;
+            margin-top: 40px;
+        }
+
+        /* Dark Mode */
         body.dark-mode {
             background: #1a1a2e;
             color: #fff;
         }
         body.dark-mode .service-card,
         body.dark-mode .price-card,
-        body.dark-mode .testimonial-card,
-        body.dark-mode .faq-item,
-        body.dark-mode .case-card {
-            background: #16213e;
-            color: #fff;
-        }
         body.dark-mode .demo input,
         body.dark-mode .demo select,
         body.dark-mode .contact input,
         body.dark-mode .contact select,
-        body.dark-mode .contact textarea,
-        body.dark-mode .calc-field select,
-        body.dark-mode .testimonial-form input,
-        body.dark-mode .testimonial-form select,
-        body.dark-mode .testimonial-form textarea {
-            background: #0f0f23;
-            color: #fff;
-            border-color: #333;
+        body.dark-mode .contact textarea {
+            background: #16213e;
         }
 
-        /* Feature 4: Floating CTA */
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        /* Floating CTA */
         .floating-cta {
             position: fixed;
             bottom: 20px;
@@ -53,11 +265,8 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        .floating-cta:hover {
-            background: #218838;
-        }
 
-        /* Feature 5: Back to Top */
+        /* Back to Top */
         .back-to-top {
             position: fixed;
             bottom: 20px;
@@ -78,11 +287,34 @@
             display: flex;
         }
 
-        /* Feature 1: Chat Widget */
-        .chat-widget {
+        /* WhatsApp Button */
+        .whatsapp-btn {
             position: fixed;
             bottom: 20px;
             right: 80px;
+            background: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            text-decoration: none;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 150px;
             z-index: 1000;
         }
         .chat-button {
@@ -141,7 +373,7 @@
             cursor: pointer;
         }
 
-        /* Feature 7: FAQ */
+        /* FAQ Section */
         .faq {
             padding: 60px 20px;
             max-width: 800px;
@@ -170,10 +402,6 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        .faq-question:hover {
-            background: linear-gradient(135deg, #764ba2, #667eea);
         }
         .faq-answer {
             padding: 0 25px;
@@ -181,7 +409,6 @@
             overflow: hidden;
             transition: max-height 0.3s ease;
             color: #ccc;
-            line-height: 1.6;
         }
         .faq-item.active .faq-answer {
             padding: 20px 25px;
@@ -189,7 +416,7 @@
             background: rgba(102, 126, 234, 0.1);
         }
 
-        /* Feature 8: Newsletter */
+        /* Newsletter */
         .newsletter {
             text-align: center;
             padding: 40px;
@@ -214,13 +441,18 @@
             cursor: pointer;
         }
 
-        /* Feature 12: Case Studies */
+        /* Case Studies - Recent Projects (Improved Colors) */
         .case-studies {
             padding: 60px 20px;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
         }
         body.dark-mode .case-studies {
-            background: #0a0a1a;
+            background: linear-gradient(135deg, #0f0f23, #1a1a3a);
+        }
+        .case-studies h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #667eea;
         }
         .case-grid {
             display: grid;
@@ -231,38 +463,49 @@
         }
         .case-card {
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-bottom: 4px solid #667eea;
+        }
+        body.dark-mode .case-card {
+            background: linear-gradient(135deg, #1a1a3a, #16213e);
+            border-bottom-color: #764ba2;
         }
         .case-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
         }
-        .case-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .case-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
         .case-card h3 {
-            padding: 15px 20px 5px;
             color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
         }
         .case-card p {
-            padding: 0 20px;
             color: #666;
+            line-height: 1.6;
+        }
+        body.dark-mode .case-card p {
+            color: #ccc;
         }
         .tech-used {
             display: inline-block;
             padding: 8px 20px;
-            margin: 10px 20px 20px;
-            background: #667eea20;
+            margin-top: 15px;
+            background: linear-gradient(135deg, #667eea20, #764ba220);
             color: #667eea;
-            border-radius: 20px;
+            border-radius: 25px;
             font-size: 12px;
+            font-weight: bold;
         }
 
-        /* Feature 13: Calculator */
+        /* Calculator */
         .calculator {
             padding: 60px 20px;
             max-width: 500px;
@@ -301,37 +544,95 @@
             font-weight: bold;
         }
 
-        /* Feature 14: Testimonial Form */
+        /* Testimonial Form - Leave a Review (Improved Colors) */
         .testimonial-form {
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 15px;
+            max-width: 550px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .testimonial-container {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 25px;
+            padding: 40px;
             text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
         }
-        body.dark-mode .testimonial-form {
-            background: #1a1a3a;
+        body.dark-mode .testimonial-container {
+            background: linear-gradient(135deg, #1a1a3a, #16213e);
+            border-color: rgba(102, 126, 234, 0.3);
         }
-        .testimonial-form input,
-        .testimonial-form select,
-        .testimonial-form textarea {
+        .testimonial-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .testimonial-container h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .testimonial-container p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        body.dark-mode .testimonial-container p {
+            color: #aaa;
+        }
+        .review-input-group input,
+        .review-input-group select,
+        .review-input-group textarea {
             width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 10px;
-            border: 1px solid #ddd;
+            padding: 14px;
+            margin: 12px 0;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            font-size: 1rem;
+            transition: all 0.3s;
         }
-        .testimonial-form button {
-            background: #667eea;
+        body.dark-mode .review-input-group input,
+        body.dark-mode .review-input-group select,
+        body.dark-mode .review-input-group textarea {
+            background: #0f0f23;
+            border-color: #333;
+            color: white;
+        }
+        .review-input-group input:focus,
+        .review-input-group select:focus,
+        .review-input-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+        .rating-select label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .testimonial-container button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
             cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        .testimonial-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
-        /* Feature 15: Notification */
+        /* Notification */
         .notification {
             position: fixed;
             bottom: 100px;
@@ -349,30 +650,7 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* Feature 18: WhatsApp Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 150px;
-            background: #25D366;
-            color: white;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            text-decoration: none;
-            z-index: 100;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-        }
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Feature 20: Email Popup */
+        /* Email Popup */
         .email-popup {
             position: fixed;
             top: 0;
@@ -398,6 +676,7 @@
         .popup-content span {
             font-size: 24px;
             cursor: pointer;
+            float: right;
         }
         .popup-content input {
             width: 100%;
@@ -414,23 +693,50 @@
             border-radius: 25px;
             cursor: pointer;
         }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .nav-links a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+            .services, .pricing, .demo, .contact {
+                padding: 30px 20px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Feature 2: Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" style="position: fixed; top: 20px; right: 20px; background: #667eea; color: white; border: none; padding: 10px 15px; border-radius: 25px; cursor: pointer; z-index: 100;">🌙 Dark Mode</button>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
 
-    <!-- Feature 4: Floating CTA -->
+    <!-- Floating CTA -->
     <a href="#contact" class="floating-cta">📞 Free Consultation →</a>
 
-    <!-- Feature 5: Back to Top Button -->
+    <!-- Back to Top -->
     <div class="back-to-top" onclick="scrollToTop()">↑</div>
 
-    <!-- Feature 18: WhatsApp Button -->
-    <a href="https://wa.me/YOUR_NUMBER?text=Hi!%20I%20need%20an%20AI%20solution" target="_blank" class="whatsapp-btn">💬</a>
+ <!-- Animated WhatsApp Button -->
+<a href="https://wa.me/8143407531 ?text=Hi!%20I%20need%20an%20AI%20solution" 
+   target="_blank" 
+   class="whatsapp-btn">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.032 2.5C6.09 2.5 1.282 7.308 1.282 13.25c0 2.188.678 4.22 1.83 5.917L1.938 21.5l2.586-.746c1.62.998 3.515 1.496 5.508 1.496 5.942 0 10.75-4.808 10.75-10.75S17.974 2.5 12.032 2.5zm0 19.5c-1.9 0-3.714-.523-5.28-1.488l-.378-.23-1.875.54.543-1.833-.25-.39a9.05 9.05 0 0 1-1.49-4.85c0-4.99 4.06-9.05 9.05-9.05 4.99 0 9.05 4.06 9.05 9.05 0 4.99-4.06 9.05-9.05 9.05zm4.96-6.77c-.27-.135-1.59-.785-1.84-.875-.25-.09-.43-.135-.61.135-.18.27-.7.875-.86 1.055-.16.18-.32.203-.59.068-.27-.135-1.14-.42-2.17-1.34-.8-.72-1.34-1.61-1.5-1.88-.16-.27-.02-.416.12-.55.12-.12.27-.32.41-.48.13-.16.18-.27.27-.45.09-.18.045-.34-.023-.48-.067-.14-.61-1.47-.84-2.01-.22-.52-.45-.45-.61-.46-.16-.01-.34-.01-.52-.01-.18 0-.47.067-.72.34-.25.27-.95.93-.95 2.27 0 1.34.97 2.63 1.11 2.81.14.18 1.91 2.92 4.63 4.09 2.72 1.17 2.72.78 3.21.73.49-.05 1.59-.65 1.81-1.28.22-.63.22-1.17.16-1.28-.06-.11-.22-.18-.49-.32z"/>
+    </svg>
+</a>
 
-    <!-- Header / Navigation -->
+    <!-- Navigation -->
     <nav>
         <div class="logo">🤖 AI Services Agency</div>
         <div class="nav-links">
@@ -467,24 +773,24 @@
         </div>
     </section>
 
-    <!-- Feature 12: Case Studies / Project Gallery -->
+    <!-- Recent Projects - Case Studies (Improved Colors) -->
     <section class="case-studies">
         <h2>📁 Recent Projects</h2>
         <div class="case-grid">
             <div class="case-card">
-                <img src="https://via.placeholder.com/300x200/667eea/white?text=Chatbot" alt="Chatbot Project">
+                <div class="case-icon">🤖</div>
                 <h3>E-commerce Chatbot</h3>
                 <p>24/7 customer support for online store. Reduced response time by 90%.</p>
                 <span class="tech-used">OpenAI • WhatsApp API</span>
             </div>
             <div class="case-card">
-                <img src="https://via.placeholder.com/300x200/764ba2/white?text=Blog+Tool" alt="Blog Tool">
+                <div class="case-icon">📝</div>
                 <h3>Blog Title Generator</h3>
-                <p>AI tool that generates 50+ blog titles in 1 click.</p>
+                <p>AI tool that generates 50+ blog titles in 1 click. Used by 100+ bloggers.</p>
                 <span class="tech-used">OpenAI • JavaScript</span>
             </div>
             <div class="case-card">
-                <img src="https://via.placeholder.com/300x200/28a745/white?text=Automation" alt="Automation">
+                <div class="case-icon">⚡</div>
                 <h3>Social Media Automation</h3>
                 <p>Auto-post content across 5 platforms saving 20+ hours/week.</p>
                 <span class="tech-used">Zapier • Make.com</span>
@@ -502,7 +808,7 @@
         </div>
     </section>
 
-    <!-- Feature 13: Pricing Calculator -->
+    <!-- Pricing Calculator -->
     <section class="calculator">
         <h2>💰 Project Cost Calculator</h2>
         <div class="calc-container">
@@ -537,7 +843,7 @@
         </div>
     </section>
 
-    <!-- Demo Section -->
+    <!-- Live AI Demo -->
     <section id="demo" class="demo">
         <h2>🎯 Live AI Demo</h2>
         <p>Try our AI content generator — free, no signup required</p>
@@ -560,7 +866,7 @@
         </div>
     </section>
 
-    <!-- Feature 7: FAQ Section -->
+    <!-- FAQ Section -->
     <section class="faq">
         <h2>❓ Frequently Asked Questions</h2>
         <div class="faq-grid">
@@ -609,7 +915,7 @@
         </form>
         <div id="formStatus"></div>
 
-        <!-- Feature 9: Custom Service Request -->
+        <!-- Custom Service Request -->
         <div style="margin-top: 40px;">
             <h3>🔧 Don't see what you need?</h3>
             <textarea id="customRequest" rows="2" placeholder="Describe the AI tool you want us to build..." style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #ddd;"></textarea>
@@ -617,22 +923,33 @@
         </div>
     </section>
 
-    <!-- Feature 14: Testimonial Form -->
+    <!-- Leave a Review - Testimonial Form (Improved Colors) -->
     <section class="testimonial-form">
-        <h3>⭐ Leave a Review</h3>
-        <p>Had a great experience? Let us know!</p>
-        <input type="text" id="clientName" placeholder="Your name">
-        <input type="email" id="clientEmail" placeholder="Your email">
-        <select id="clientRating">
-            <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
-            <option value="4">⭐⭐⭐⭐ - Good</option>
-            <option value="3">⭐⭐⭐ - Average</option>
-        </select>
-        <textarea id="clientReview" rows="3" placeholder="Your review..."></textarea>
-        <button onclick="submitReview()">Submit Review →</button>
+        <div class="testimonial-container">
+            <div class="testimonial-icon">⭐</div>
+            <h3>Leave a Review</h3>
+            <p>Had a great experience? Let us know!</p>
+            
+            <div class="review-input-group">
+                <input type="text" id="clientName" placeholder="Your name">
+                <input type="email" id="clientEmail" placeholder="Your email">
+                <div class="rating-select">
+                    <label>Your Rating:</label>
+                    <select id="clientRating">
+                        <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                        <option value="4">⭐⭐⭐⭐ - Good</option>
+                        <option value="3">⭐⭐⭐ - Average</option>
+                        <option value="2">⭐⭐ - Poor</option>
+                        <option value="1">⭐ - Terrible</option>
+                    </select>
+                </div>
+                <textarea id="clientReview" rows="4" placeholder="Share your experience..."></textarea>
+                <button onclick="submitReview()">Submit Review →</button>
+            </div>
+        </div>
     </section>
 
-    <!-- Feature 8: Newsletter Signup -->
+    <!-- Newsletter Signup -->
     <div class="newsletter">
         <h3>📧 Get AI Tips & Exclusive Offers</h3>
         <p>Subscribe to our newsletter for weekly AI insights and discounts.</p>
@@ -651,18 +968,18 @@
                 <div style="text-align: center;"><div style="font-size: 30px;">📋</div><div style="font-weight: bold;">15+ Projects</div></div>
             </div>
             <hr style="border-color: #333; margin: 20px 0;">
-            <p style="text-align: center;">🤖 AI Services Agency — Delivering AI solutions for businesses worldwide</p>
-            <p style="text-align: center; margin: 10px 0;">📧 ai@yoursite.com | 📱 WhatsApp: +1 234 567 890</p>
-            <div style="text-align: center; margin: 20px 0;">
+            <p>🤖 AI Services Agency — Delivering AI solutions for businesses worldwide</p>
+            <p style="margin: 10px 0;">📧 ai@yoursite.com | 📱 WhatsApp: +1 234 567 890</p>
+            <div style="margin: 20px 0;">
                 <a href="#" style="color: #667eea; margin: 0 10px; text-decoration: none;">🐦 Twitter</a>
                 <a href="#" style="color: #667eea; margin: 0 10px; text-decoration: none;">💼 LinkedIn</a>
                 <a href="#" style="color: #667eea; margin: 0 10px; text-decoration: none;">📘 GitHub</a>
             </div>
-            <p style="text-align: center; font-size: 12px; color: #666;">© 2024 AI Services Agency. All rights reserved.</p>
+            <p style="font-size: 12px; color: #666;">© 2024 AI Services Agency. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Feature 1: Live Chat Widget -->
+    <!-- Live Chat Widget -->
     <div class="chat-widget">
         <div class="chat-button" onclick="toggleChat()">💬</div>
         <div class="chat-popup" id="chatPopup">
@@ -676,10 +993,10 @@
         </div>
     </div>
 
-    <!-- Feature 15: Notification -->
+    <!-- Notification -->
     <div id="notification" class="notification"></div>
 
-    <!-- Feature 20: Email Popup -->
+    <!-- Email Popup -->
     <div id="popup" class="email-popup" style="display:none;">
         <div class="popup-content">
             <span onclick="closePopup()" style="float:right;cursor:pointer;">&times;</span>
@@ -690,9 +1007,8 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
     <script>
-        // Feature 2: Dark Mode Toggle
+        // Dark Mode Toggle
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             const btn = document.querySelector('.theme-toggle');
@@ -703,7 +1019,7 @@
             }
         }
 
-        // Feature 5: Back to Top
+        // Back to Top
         window.addEventListener('scroll', function() {
             const backBtn = document.querySelector('.back-to-top');
             if(window.scrollY > 300) {
@@ -716,7 +1032,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Feature 1: Chat Widget
+        // Chat Widget
         function toggleChat() {
             document.getElementById('chatPopup').classList.toggle('active');
         }
@@ -735,13 +1051,13 @@
             }
         }
 
-        // Feature 7: FAQ Toggle
+        // FAQ Toggle
         function toggleFAQ(element) {
             const item = element.parentElement;
             item.classList.toggle('active');
         }
 
-        // Feature 8: Newsletter
+        // Newsletter
         function subscribeNewsletter() {
             const email = document.getElementById('newsletterEmail').value;
             if(email) {
@@ -752,7 +1068,7 @@
             }
         }
 
-        // Feature 9: Custom Request
+        // Custom Request
         function submitRequest() {
             const request = document.getElementById('customRequest').value;
             if(request) {
@@ -763,7 +1079,7 @@
             }
         }
 
-        // Feature 13: Calculator
+        // Calculator
         function updatePrice() {
             const service = parseFloat(document.getElementById('calcService').value);
             const complexity = parseFloat(document.getElementById('calcComplexity').value);
@@ -771,12 +1087,12 @@
             const price = service * complexity * urgent;
             document.getElementById('calcPrice').innerText = '$' + Math.round(price);
         }
-        document.getElementById('calcService')?.addEventListener('change', updatePrice);
-        document.getElementById('calcComplexity')?.addEventListener('change', updatePrice);
-        document.getElementById('calcUrgent')?.addEventListener('change', updatePrice);
-        if(typeof updatePrice === 'function') updatePrice();
+        document.getElementById('calcService').addEventListener('change', updatePrice);
+        document.getElementById('calcComplexity').addEventListener('change', updatePrice);
+        document.getElementById('calcUrgent').addEventListener('change', updatePrice);
+        updatePrice();
 
-        // Feature 14: Testimonial
+        // Submit Review
         function submitReview() {
             const name = document.getElementById('clientName').value;
             const review = document.getElementById('clientReview').value;
@@ -790,7 +1106,7 @@
             }
         }
 
-        // Feature 15: Notification
+        // Notification
         const messages = [
             "Someone just requested a quote! 🎉",
             "New client inquiry received! 📧",
@@ -800,20 +1116,17 @@
         setInterval(() => {
             const randomMsg = messages[Math.floor(Math.random() * messages.length)];
             const notif = document.getElementById('notification');
-            if(notif) {
-                notif.innerText = randomMsg;
-                notif.style.display = 'block';
-                setTimeout(() => {
-                    notif.style.display = 'none';
-                }, 3000);
-            }
+            notif.innerText = randomMsg;
+            notif.style.display = 'block';
+            setTimeout(() => {
+                notif.style.display = 'none';
+            }, 3000);
         }, 30000);
 
-        // Feature 20: Email Popup
+        // Email Popup
         setTimeout(() => {
             if(!localStorage.getItem('popupShown')) {
-                const popup = document.getElementById('popup');
-                if(popup) popup.style.display = 'flex';
+                document.getElementById('popup').style.display = 'flex';
                 localStorage.setItem('popupShown', 'true');
             }
         }, 5000);
@@ -829,40 +1142,36 @@
         }
 
         // AI Demo
-        if(document.getElementById('runDemo')) {
-            document.getElementById('runDemo').addEventListener('click', async () => {
-                const type = document.getElementById('demoType').value;
-                const topic = document.getElementById('demoInput').value;
-                if (!topic) {
-                    alert('Please enter a topic');
-                    return;
+        document.getElementById('runDemo').addEventListener('click', async () => {
+            const type = document.getElementById('demoType').value;
+            const topic = document.getElementById('demoInput').value;
+            if (!topic) {
+                alert('Please enter a topic');
+                return;
+            }
+            document.getElementById('demoOutput').innerHTML = '<div style="text-align:center;">🤖 AI is thinking...</div>';
+            setTimeout(() => {
+                let response = '';
+                if (type === 'captions') {
+                    response = `📱 INSTAGRAM CAPTIONS:\n\n1. "${topic}" but make it aesthetic ✨\n2. Your daily dose of ${topic} 💪\n3. Stop scrolling, start ${topic.split(' ')[0]}ing 🚀\n4. The secret to ${topic} nobody tells you 🤫\n5. ${topic.toUpperCase()} = best decision ever 🔥`;
+                } else if (type === 'script') {
+                    response = `🎬 YOUTUBE SCRIPT OUTLINE:\n\nINTRO (0:00-0:30): Hook about ${topic}\nSECTION 1 (0:30-2:00): Why ${topic} matters\nSECTION 2 (2:00-4:00): Step-by-step guide\nSECTION 3 (4:00-6:00): Common mistakes\nOUTRO (6:00-7:00): Call to action`;
+                } else {
+                    response = `💡 VIDEO IDEAS FOR "${topic}":\n\n1. "I tried ${topic} for 30 days - here's what happened"\n2. "10 ${topic} hacks that actually work"\n3. "The dark side of ${topic}"\n4. "${topic} for beginners - complete guide"\n5. "How I make $1000 with ${topic}"`;
                 }
-                document.getElementById('demoOutput').innerHTML = '<div style="text-align:center;">🤖 AI is thinking...</div>';
-                setTimeout(() => {
-                    let response = '';
-                    if (type === 'captions') {
-                        response = `📱 INSTAGRAM CAPTIONS:\n\n1. "${topic}" but make it aesthetic ✨\n2. Your daily dose of ${topic} 💪\n3. Stop scrolling, start ${topic.split(' ')[0]}ing 🚀\n4. The secret to ${topic} nobody tells you 🤫\n5. ${topic.toUpperCase()} = best decision ever 🔥`;
-                    } else if (type === 'script') {
-                        response = `🎬 YOUTUBE SCRIPT OUTLINE:\n\nINTRO (0:00-0:30): Hook about ${topic}\nSECTION 1 (0:30-2:00): Why ${topic} matters\nSECTION 2 (2:00-4:00): Step-by-step guide\nSECTION 3 (4:00-6:00): Common mistakes\nOUTRO (6:00-7:00): Call to action`;
-                    } else {
-                        response = `💡 VIDEO IDEAS FOR "${topic}":\n\n1. "I tried ${topic} for 30 days - here's what happened"\n2. "10 ${topic} hacks that actually work"\n3. "The dark side of ${topic}"\n4. "${topic} for beginners - complete guide"\n5. "How I make $1000 with ${topic}"`;
-                    }
-                    document.getElementById('demoOutput').innerHTML = `<div style="background:#f0f0f0; padding:20px; border-radius:10px; white-space:pre-wrap;">${response}</div>`;
-                }, 1000);
-            });
-        }
+                document.getElementById('demoOutput').innerHTML = `<div style="background:#f0f0f0; padding:20px; border-radius:10px; white-space:pre-wrap;">${response}</div>`;
+            }, 1000);
+        });
 
         // Contact Form
-        if(document.getElementById('contactForm')) {
-            document.getElementById('contactForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                document.getElementById('formStatus').innerHTML = 'Sending...';
-                setTimeout(() => {
-                    document.getElementById('formStatus').innerHTML = '✅ Message sent! We will contact you within 24 hours.';
-                    document.getElementById('contactForm').reset();
-                }, 1000);
-            });
-        }
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            document.getElementById('formStatus').innerHTML = 'Sending...';
+            setTimeout(() => {
+                document.getElementById('formStatus').innerHTML = '✅ Message sent! We will contact you within 24 hours.';
+                document.getElementById('contactForm').reset();
+            }, 1000);
+        });
     </script>
 </body>
 </html>
